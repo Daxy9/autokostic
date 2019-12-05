@@ -1,8 +1,9 @@
 
-
 $(document).ready(ucitavanje);
 function ucitavanje(){
   
+  document.getElementById("dugme").addEventListener("click", proveri);
+
   /* pocetak koda za dinamicko ispisivanje menija */
 
   var meniHref = ["#", "#limuzine", "#suv", "#test"];
@@ -55,7 +56,7 @@ function ucitavanje(){
 
   /*pocetak koda za dinamicko popunjavanje liste*/
 
-  var nizAuto = ["Izaberite BMW model", "BMW 320d", "BMW 330d","BMW 330i", "BMW 520d", "BMW 540d xDrive", "BMW 530i", "BMW 540i", "BMW M550i xDrive"];
+  var nizAuto = ["Izaberite BMW model", "BMW 320d", "BMW 330d","BMW 330i", "BMW 520d", "BMW 540d xDrive", "BMW 530i", "BMW M550i xDrive", "BMW 740d", "X3 xDrive30d", "X3 M40i", "X5 M50d", "X5 xDrive40i", "X7 xDrive50i"];
 
   var ispisKola = "";
 
@@ -180,6 +181,8 @@ function ucitavanje(){
 
   var brojac3 = 0;
 
+  /*Pocetak koda za sakrivanje i otkrivanje tabele*/ 
+
   $('#vise').click(function(event){
     event.preventDefault();
     if(brojac3 %2 == 0){
@@ -264,6 +267,8 @@ function ucitavanje(){
     brojacx3++;
   });
 
+    /*Kraj koda za sakrivanje i otkrivanje tabele*/ 
+
   $('a[rel=serija3]').colorbox({
     transition: 'fade',
     speed: 400,
@@ -294,8 +299,98 @@ function ucitavanje(){
     speed: 400,
     current: "{current} of {total}"
   });
+
+  $('#dugme').click(function(e){
+    e.preventDefault();
+  });
+
+
+}
+function proveri(){
+  var ime = document.getElementById("ime").value;
+  var prezime = document.getElementById("prezime").value;
+  var telefon = document.getElementById("tel").value;
+  var adresa = document.getElementById("adresa").value;
+  var datum = document.getElementById("datum").value;
+  var datumDanas = new Date();
+  var datumDanasGod = datumDanas.getFullYear();
+  var datumDanasMesec = datumDanas.getMonth() + parseInt("1");
+  var datumDanasDan = datumDanas.getDate();
+  var nizDatum = datum.split("-");
+  var licna = document.getElementById("brLK").value;
+
+
+
+  if(Number(nizDatum[0]) < datumDanasGod || Number(nizDatum[1]) < datumDanasMesec || Number(nizDatum[2]) < datumDanasDan){
+    document.getElementById("datum").classList.remove("borderDobar");
+    document.getElementById("datum").classList.add("borderGreska");
+  } 
+  else{
+    document.getElementById("datum").classList.remove("borderGreska");
+    document.getElementById("datum").classList.add("borderDobar");
+  }
+
+  var regexIme = /^[A-Z][a-z]+$/;
+  if(!regexIme.test(ime)){
+    document.getElementById("ime").classList.remove("borderDobar");
+    document.getElementById("ime").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("ime").classList.remove("borderGreska");
+    document.getElementById("ime").classList.add("borderDobar");
+  }
+
+  var regexPrezime = /^[A-Z][a-z]+$/;
+  if(!regexPrezime.test(prezime)){
+    document.getElementById("prezime").classList.remove("borderDobar");
+    document.getElementById("prezime").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("prezime").classList.remove("borderGreska");
+    document.getElementById("prezime").classList.add("borderDobar");
+  }
+
+  var regexTelefon = /^06[01234569]\/[\d]{6,7}$/;
+  if(!regexTelefon.test(telefon)){
+    document.getElementById("tel").classList.remove("borderDobar");
+    document.getElementById("tel").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("tel").classList.remove("borderGreska");
+    document.getElementById("tel").classList.add("borderDobar");
+  }
+
+  var regexAdresa = /^([\w]+\s)+[\d]+$/;
+  if(!regexAdresa.test(adresa)){
+    document.getElementById("adresa").classList.remove("borderDobar");
+    document.getElementById("adresa").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("adresa").classList.remove("borderGreska");
+    document.getElementById("adresa").classList.add("borderDobar");
+  }
+
+  var regexLicna = /^[\d]{9}$/;
+  if(!regexLicna.test(licna)){
+    document.getElementById("brLK").classList.remove("borderDobar");
+    document.getElementById("brLK").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("brLK").classList.remove("borderGreska");
+    document.getElementById("brLK").classList.add("borderDobar");
+  }
+
+  if(document.getElementById("listaKola").value == 0){
+    document.getElementById("listaKola").classList.remove("borderDobar");
+    document.getElementById("listaKola").classList.add("borderGreska");
+  }
+  else{
+    document.getElementById("listaKola").classList.remove("borderGreska");
+    document.getElementById("listaKola").classList.add("borderDobar");
+  }
 }
 
+/* Deo koda za plugin */
 
 $(function() {
     $(".rslides").responsiveSlides({

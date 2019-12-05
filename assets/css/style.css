@@ -34,13 +34,17 @@ a:hover{
 }
 table tr th{
     border: 1px solid #c2c2c2;
-    padding: 5px;
+    padding: 2px;
     text-align: center;
 }
 table tr td{
     border: 1px solid #c2c2c2;
-    padding: 5px;
+    padding: 2px;
     text-align: center;
+}
+table tr td:last-child{
+    padding: 0px;
+    margin: 0px;
 }
 .ivice{
     border-radius: 3px;
@@ -94,9 +98,6 @@ footer ul li{
 .nav-link:hover{
     color: #2de9ff;
 }
-#pol{
-    padding-top: 15px;
-}
 #scrollToTop{
 	background:rgba(128, 128, 128, 0.4);
 	padding:15px;
@@ -108,6 +109,12 @@ footer ul li{
 }
 .kursor{
     cursor: pointer;
+}
+.borderGreska{
+    border: 2px solid #ff0000;
+}
+.borderDobar{
+    border: 2px solid #00ff00;
 }
 #dugme{
     width: 100%;
