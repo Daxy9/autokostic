@@ -135,9 +135,9 @@ function ucitavanje(){
 })
 
   /*Pocetak koda za efekat zebre*/
-  $('.table tbody tr:nth-child(even)').addClass("zebra").css({color: "#ffffff"});
-  $('.table tbody tr:nth-child(odd)').css({color: "#ffffff"});
-  $('.table thead tr').css({color: "#ffffff"});
+  $('.table tbody tr:nth-child(even)').addClass("zebra").css('color', "#ffffff");
+  $('.table tbody tr:nth-child(odd)').css('color', "#ffffff");
+  $('.table thead tr').css('color', "#ffffff");
 
   /*Kraj koda za efekat zebre*/ 
 
