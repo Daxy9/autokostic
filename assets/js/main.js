@@ -23,9 +23,7 @@ function ucitavanje(){
   $('#navigacija li a').addClass("bojaMeni");
 
   /* kraj koda za dinamicko ispisivanje menija */
-  $('.nav-link').on('click', function(){
-    $('.collapse').fadeOut();
-  });
+
   /* pocetak koda za animirani skrol do odredjenog dela strane */
   $('#navigacija ul li a').click(function(e){
     if($(this).prop('id') == 'lim'){
