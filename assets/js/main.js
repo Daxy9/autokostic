@@ -1,11 +1,8 @@
 
 $(document).ready(ucitavanje);
 function ucitavanje(){
-  
   document.getElementById("dugme").addEventListener("click", proveri);
-
   /* pocetak koda za dinamicko ispisivanje menija */
-
   var meniHref = ["#", "#limuzine", "#suv", "#test"];
   var meniText = ["Početna", "Limuzine", "SUV", "Test vožnja"];
   var meniID = ["poc", "lim", "dzip", "voznja"];
@@ -23,7 +20,12 @@ function ucitavanje(){
   $('#navigacija li a').addClass("bojaMeni");
 
   /* kraj koda za dinamicko ispisivanje menija */
-
+  $('.nav-link').on('click', function(){
+    $('.collapse').fadeOut();
+  });
+  $('.burger').on('click', function(){
+    $('.collapse').fadeIn();
+  });
   /* pocetak koda za animirani skrol do odredjenog dela strane */
   $('#navigacija ul li a').click(function(e){
     if($(this).prop('id') == 'lim'){
